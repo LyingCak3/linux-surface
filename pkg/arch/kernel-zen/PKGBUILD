@@ -30,27 +30,18 @@ optdepends=('iptsd: Touchscreen support'
 options=('!strip')
 _srcname=linux-${pkgver%.*}
 _srctag=v${pkgver%.*}-${pkgver##*.}
+_surface_root="../kernel"
 source=(
   https://cdn.kernel.org/pub/linux/kernel/v${pkgver%%.*}.x/${_srcname}.tar.{xz,sign}
   $url/releases/download/$_srctag/linux-$_srctag.patch.zst{,.sig}
 
-  surface.config # surface specific options
   arch.config::https://gitlab.archlinux.org/api/v4/projects/42705/repository/files/config/raw?ref=${pkgver}-1
-  0001-secureboot.patch
-  0002-surface3-oemb.patch
-  0003-mwifiex.patch
-  0004-ath10k.patch
-  0005-ipts.patch
-  0006-ithc.patch
-  0007-surface-sam-over-hid.patch
-  0008-surface-button.patch
-  0009-surface-typecover.patch
-  0010-surface-shutdown.patch
-  0011-surface-gpe.patch
-  0012-cameras.patch
-  0013-amd-gpio.patch
-  0014-rtc.patch
+  surface.config::file://$(realpath ${_surface_root}/surface.config) # surface specific options
 )
+for patch in ${_surface_root}/*.patch; do
+  source+=(file://$(realpath ${patch}))
+  :
+done
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
@@ -60,8 +51,8 @@ sha256sums=('2291da065ca04b715c89ee50362aec3f021a7414bc963f1b56736682c8122979'
             'SKIP'
             '80af8dd7e2842038d95989983fab61e207a8727928af63c4c7c214905e2549ae'
             'SKIP'
-            '8276bbf41baf9ca10749b46c6d8f3e641b2aeaa3492eefaeb6c4f404c18e3de5'
             '107d53b37882deb07653d6a9679eafd2ae0a3f99e157f37ec6c5e8ee2170cbee'
+            '8276bbf41baf9ca10749b46c6d8f3e641b2aeaa3492eefaeb6c4f404c18e3de5'
             '979c23063ac85900deb62d6ab54f250bab5f9bae83dbe4082145b86772570dff'
             'eef74faedb785a3b484909b820d447b793b0b2d6eaf1aecc3ab9ee94a9ece48e'
             '9284772ff36b0389b60cfeddab3a378ecb57ae1420183b87c71266a87def787d'
