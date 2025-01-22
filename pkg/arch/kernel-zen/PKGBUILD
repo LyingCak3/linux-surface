@@ -3,7 +3,7 @@
 # Maintainer: Jan Alexander Steffens (heftig) <jan.steffens@gmail.com>
 
 pkgbase=linux-zen-surface
-pkgver=6.12.8.zen1
+pkgver=6.12.10.zen1
 pkgrel=1
 pkgdesc='Linux ZEN with Microsoft Surface patch set'
 _shortver=${pkgver%.*}
@@ -47,11 +47,11 @@ validpgpkeys=(
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
   83BC8889351B5DEBBB68416EB8AC08600F108CDF  # Jan Alexander Steffens (heftig)
 )
-sha256sums=('2291da065ca04b715c89ee50362aec3f021a7414bc963f1b56736682c8122979'
+sha256sums=('4a516e5ed748537a73cb42ec47fbbeb6df8b1298e8892c29c0e91de79095b297'
             'SKIP'
-            '80af8dd7e2842038d95989983fab61e207a8727928af63c4c7c214905e2549ae'
+            '1ac0cc107dcb93c83d7e3cd335aa4b5f0660749576550782a9b53bebc42750c6'
             'SKIP'
-            '107d53b37882deb07653d6a9679eafd2ae0a3f99e157f37ec6c5e8ee2170cbee'
+            '25509d6a47cd1723be5f0aec1215e0616a7e39e1e10daad7326d4dc3cf598b0e'
             '8276bbf41baf9ca10749b46c6d8f3e641b2aeaa3492eefaeb6c4f404c18e3de5'
             '979c23063ac85900deb62d6ab54f250bab5f9bae83dbe4082145b86772570dff'
             'eef74faedb785a3b484909b820d447b793b0b2d6eaf1aecc3ab9ee94a9ece48e'
